@@ -146,16 +146,20 @@ and compile again:
 Keys
 ----
 
-Mod is the Super key by default.
+Mod is the Super key by default. The hjkl window-management bindings also have
+corresponding arrow-key alternatives.
 
-	Mod+j / Mod+k              focus next / previous client
-	Mod+Shift+j / Mod+Shift+k  move selected client down / up
-	Mod+i / Mod+o              increase / decrease master count
-	Mod+h / Mod+l              shrink / grow master area
-	Mod+Return                 move selected client to master
-	Mod+q                      close selected client
-	Mod+Space                  switch layout
-	Mod+Shift+Space            toggle floating
-	Mod+Shift+q                quit dwm
+    Mod+j / Mod+Down                    focus next client
+    Mod+k / Mod+Up                      focus previous client
+    Mod+Shift+j / Mod+Shift+Down        move selected client down
+    Mod+Shift+k / Mod+Shift+Up          move selected client up
+    Mod+i / Mod+o                       increase / decrease master count
+    Mod+h / Mod+Left                    shrink master area
+    Mod+l / Mod+Right                   grow master area
+    Mod+Return                          move selected client to master
+    Mod+q                               close selected client
+    Mod+Space                           switch layout
+    Mod+Shift+Space                     toggle floating
+    Mod+Shift+e                         quit dwm
 
 The normal dwm tag, monitor, mouse and layout bindings are still present.
