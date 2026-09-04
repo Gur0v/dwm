@@ -44,7 +44,6 @@ CFLAGS = \
 	-Wshadow \
 	-Wformat=2 \
 	-Wundef \
-	-Wno-deprecated-declarations \
 	-O2 \
 	-flto=full \
 	-fno-plt \
