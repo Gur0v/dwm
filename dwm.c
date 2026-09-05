@@ -1127,15 +1127,12 @@ manage(Window w, XWindowAttributes *wa)
 	updatewindowtype(c);
 	updatesizehints(c);
 	updatewmhints(c);
+	c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
+	c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
 	grabbuttons(c, 0);
 	if (!c->isfloating)
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
-	/* Always center floating windows after their final state is known. */
-	if (c->isfloating) {
-		c->x = c->mon->mx + MAX(0, (c->mon->mw - WIDTH(c)) / 2);
-		c->y = c->mon->my + MAX(0, (c->mon->mh - HEIGHT(c)) / 2);
-	}
 	if (c->isfloating)
 		XRaiseWindow(dpy, c->win);
 	attachBelow(c);

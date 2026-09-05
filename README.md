@@ -28,11 +28,9 @@ Mod+Shift+j and Mod+Shift+k move the selected tiled client through the stack.
 Floating and hidden clients are skipped. The empty-tag case is also handled.
 This is based on movestack and has been changed for this tree.
 
-New floating windows are centered on their monitor. Rules, dialogs, transient
-windows and fixed-size windows are handled after their final floating state is
-known. Oversized windows are kept at the monitor origin instead of being moved
-past its top or left edge. This is based on alwayscenter and has been changed
-for this tree.
+New windows are initially centered on their monitor. Tiled layouts then arrange
+non-floating windows normally, while clients in the floating layout are also
+centered. This uses the alwayscenter patch.
 
 Fullscreen clients keep focus when lockfullscreen is enabled. They cannot be
 moved, resized or reconfigured while fullscreen. Their old geometry is saved
