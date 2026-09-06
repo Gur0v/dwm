@@ -1755,20 +1755,21 @@ tile(Monitor *m)
 	if (n == 0)
 		return;
 
+	/* inner gap g between master and stack, outer gaps on all edges */
 	if (n > m->nmaster)
-		mw = m->nmaster ? (m->ww - (g = gappx)) * m->mfact : 0;
+		mw = m->nmaster ? (m->ww - (g = gappx) - 2 * gappx) * m->mfact : 0;
 	else
-		mw = m->ww;
+		mw = m->ww - 2 * gappx;
 	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
 		if (i < m->nmaster) {
 			r = MIN(n, m->nmaster) - i;
-			h = (m->wh - my - gappx * (r - 1)) / r;
-			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
+			h = (m->wh - 2 * gappx - my - gappx * (r - 1)) / r;
+			resize(c, m->wx + gappx, m->wy + gappx + my, mw - (2*c->bw), h - (2*c->bw), 0);
 			my += HEIGHT(c) + gappx;
 		} else {
 			r = n - i;
-			h = (m->wh - ty - gappx * (r - 1)) / r;
-			resize(c, m->wx + mw + g, m->wy + ty, m->ww - mw - g - (2*c->bw), h - (2*c->bw), 0);
+			h = (m->wh - 2 * gappx - ty - gappx * (r - 1)) / r;
+			resize(c, m->wx + gappx + mw + g, m->wy + gappx + ty, m->ww - 2 * gappx - mw - g - (2*c->bw), h - (2*c->bw), 0);
 			ty += HEIGHT(c) + gappx;
 		}
 }
